@@ -129,7 +129,7 @@ function App() {
                   <img
                     src={img.preview}
                     alt="Preview"
-                    className="w-full object-cover rounded-md"
+                    className="h-32 w-full object-cover rounded-md"
                   />
                   <Button
                     variant="destructive"
