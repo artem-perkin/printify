@@ -55,7 +55,11 @@ function App() {
   };
 
   const handlePrint = () => {
-    window.print();
+    if (typeof window.print === "function") {
+      window.print();
+    } else {
+      alert("Printing is not supported on this device. Try using a desktop browser.");
+    }
   };
 
   return (
