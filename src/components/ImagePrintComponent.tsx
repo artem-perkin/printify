@@ -79,7 +79,7 @@ export default function ImagePrintComponent() {
     let currentHeight = 0;
     let pageStarted = false;
 
-    images.forEach((img, index) => {
+    images.forEach((img, _) => {
       if (currentHeight + img.height > A4_HEIGHT || !pageStarted) {
         if (pageStarted) printWindow.document.write('</div>');
         printWindow.document.write('<div class="a4-page">');
