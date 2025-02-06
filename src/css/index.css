@@ -89,3 +89,37 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.print-page {
+  --page-width: 297mm;
+  --page-height: 210mm;
+  --item-width: 148.5mm;
+  --item-height: 100mm;
+  --columns: 2;
+  --rows: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--item-width));
+  grid-template-rows: repeat(var(--rows), var(--item-height));
+  column-gap: calc(var(--page-width) - (var(--item-width) * var(--columns)));
+  row-gap: calc(var(--page-height) - (var(--item-height) * var(--rows)));
+  width: var(--page-width);
+  height: var(--page-height);
+  border: 1px solid black;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+.print-item {
+  width: var(--item-width);
+  height: var(--item-height);
+  box-sizing: border-box;
+  break-inside: avoid;
+}
+@media print {
+  @page {size: landscape}
+
+  body { margin: 0; }
+  .print-page {
+    border: none;
+    margin: 0;
+  }
+}
